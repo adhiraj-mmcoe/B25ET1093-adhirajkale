@@ -1,0 +1,100 @@
+#include <iostream>
+using namespace std;
+
+
+class complex{
+    float real1, real2, imaginary1, imaginary2;
+
+
+    public:
+    void getData() {
+        cout << "First Number: " << endl;
+        cout << "Enter real part: ";
+        cin >> real1;
+        cout << "Enter imaginary part: ";
+        cin >> imaginary1;
+        cout << endl << "Second number: " << endl;
+        cout << "Enter real part: ";
+        cin >> real2;
+        cout << "Enter imaginary part: ";
+        cin >> imaginary2;
+    }
+
+
+   
+    void addData() {
+        int realSum = real1 + real2;
+        int imgSum = imaginary1 + imaginary2;
+        cout << "Sum is: " << realSum;
+
+
+        if(imgSum>0)
+        cout << " + " << imgSum << "i";
+        else if(imgSum<0)
+        cout << " - " << -imgSum << "i";
+    }
+
+
+
+
+    void subtractData() {
+        int realSub = real1 - real2;
+        int imgSub = imaginary1 - imaginary2;
+        cout << "Difference is: " << realSub;
+
+
+        if(imgSub>0)
+        cout << " + " << imgSub << "i";
+        else if(imgSub<0)
+        cout << " - " << -imgSub << "i";
+    }
+
+
+
+
+    void multiplyData() {
+        int realTerm = (real1*real2) - (imaginary1*imaginary2);
+        int imaginaryTerm = (real1*imaginary2) + (real2*imaginary1);
+        cout << "Product is: " << realTerm;
+
+
+        if(imaginaryTerm>0)
+        cout << " + " << imaginaryTerm << "i";
+        else if(imaginaryTerm<0)
+        cout << " - " << -imaginaryTerm << "i";
+    }
+
+
+
+
+    void divideData() {
+        float realTerm1 = ((real1*real2) + (imaginary1*imaginary2)) / ((real2*real2)+(imaginary2*imaginary2));
+        float imaginaryTerm1 = ((real2*imaginary1) - (real1*imaginary2)) / ((real2*real2)+(imaginary2*imaginary2));
+        cout << "Division is: " << realTerm1;
+
+
+        if(imaginaryTerm1>0)
+        cout << " + " << imaginaryTerm1 << "i";
+        else if(imaginaryTerm1<0)
+        cout << " - " << -imaginaryTerm1 << "i";
+    }
+};
+
+
+int main() {
+   
+    complex c1;
+    c1.getData();
+    cout << endl;
+    c1.addData();
+    cout << endl;
+    c1.subtractData();
+    cout << endl;
+    c1.multiplyData();
+    cout << endl;
+    c1.divideData();
+   
+
+
+    return 0;
+}
