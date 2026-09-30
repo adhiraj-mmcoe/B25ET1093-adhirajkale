@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class MyString {
+    char *str;
+
+public:
+    // Default constructor
+    MyString() {
+        str = new char[1];
+        str[0] = '\0';
+    }
+
+    // Parameterized constructor
+    MyString(const char *s) {
+        str = new char[strlen(s) + 1];
+        strcpy(str, s);
+    }
+
+    // Copy constructor
+    MyString(const MyString &s) {
+        str = new char[strlen(s.str) + 1];
+        strcpy(str, s.str);
+    }
+
+    // Accept function
+    void accept() {
+        char temp[100];
+
+        cout << "Enter a string: ";
+        cin.getline(temp, 100);
+
+        delete[] str;
+        str = new char[strlen(temp) + 1];
+        strcpy(str, temp);
+    }
+
+    // Display function
+    void display() {
+        cout << str << endl;
+    }
+
+    // Destructor
+    ~MyString() {
+        delete[] str;
+    }
+};
+
+int main() {
+    MyString s1;
+    s1.accept();
+
+    MyString s2("Object Oriented Programming");
+
+    MyString s3(s2);
+
+    cout << "s1 = ";
+    s1.display();
+
+    cout << "s2 = ";
+    s2.display();
+
+    cout << "s3 (copy of s2) = ";
+    s3.display();
+
+    return 0;
+}
