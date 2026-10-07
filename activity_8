@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class for basic employee information
+class BasicInfo {
+protected:
+    int id;
+    string name;
+
+public:
+    // Function to take basic employee details
+    void getBasicInfo() {
+        cout << "Enter employee ID: ";
+        cin >> id;
+
+        cout << "Enter employee name: ";
+        cin >> name;
+    }
+};
+
+// Base class for department-related information
+class DepartmentInfo {
+protected:
+    string department;
+    string designation;
+
+public:
+    // Function to take department details
+    void getDepartmentInfo() {
+        cout << "Enter department: ";
+        cin >> department;
+
+        cout << "Enter designation: ";
+        cin >> designation;
+    }
+};
+
+// Employee class inherits from both BasicInfo and DepartmentInfo
+class Employee : public BasicInfo, public DepartmentInfo {
+    float salary;
+
+public:
+    // Function to accept all employee information
+    void accept() {
+        getBasicInfo();
+        getDepartmentInfo();
+
+        cout << "Enter salary: ";
+        cin >> salary;
+    }
+
+    // Function to display employee information
+    void display() {
+        cout << "\nEmployee Information\n";
+
+        cout << "Employee ID : " << id << endl;
+        cout << "Name        : " << name << endl;
+        cout << "Department  : " << department << endl;
+        cout << "Designation : " << designation << endl;
+        cout << "Salary      : " << salary << endl;
+    }
+};
+
+// Main function
+int main() {
+    // Create an object of Employee class
+    Employee e;
+
+    // Accept employee details
+    e.accept();
+
+    // Display employee details
+    e.display();
+
+    return 0;
+}
