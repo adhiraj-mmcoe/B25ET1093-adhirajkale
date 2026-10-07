@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+// Abstract base class
+class Shape {
+public:
+    // Pure virtual function
+    // It must be defined in the derived classes
+    virtual void area() = 0;
+};
+
+// Circle class inherits from Shape
+class Circle : public Shape {
+public:
+    // Function to calculate and display area of circle
+    void area() {
+        float r = 3;
+
+        cout << "Area of circle    = "
+             << 3.14159 * r * r << endl;
+    }
+};
+
+// Rectangle class inherits from Shape
+class Rectangle : public Shape {
+public:
+    // Function to calculate and display area of rectangle
+    void area() {
+        float l = 5, b = 4;
+
+        cout << "Area of rectangle = "
+             << l * b << endl;
+    }
+};
+
+// Main function
+int main() {
+    // Create objects of Circle and Rectangle
+    Circle c;
+    Rectangle r;
+
+    // Create a pointer of base class Shape
+    Shape *p;
+
+    // Point the Shape pointer to Circle object
+    p = &c;
+
+    // Calls Circle's area() function
+    p->area();
+
+    // Point the Shape pointer to Rectangle object
+    p = &r;
+
+    // Calls Rectangle's area() function
+    p->area();
+
+    return 0;
+}
