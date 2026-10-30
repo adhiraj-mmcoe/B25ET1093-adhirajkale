@@ -1,0 +1,32 @@
+
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+int main()
+{
+    int numerator, denominator;
+
+    cout << "Enter numerator: ";
+    cin >> numerator;
+
+    cout << "Enter denominator: ";
+    cin >> denominator;
+
+    try
+    {
+        // Check for division by zero
+        if (denominator == 0)
+            throw runtime_error("Division by zero is not allowed.");
+
+        // Perform division
+        cout << "Result: " << (float)numerator / denominator;
+    }
+    catch (runtime_error &e)
+    {
+        // Handle the exception
+        cout << "Exception caught: " << e.what();
+    }
+
+    return 0;
+}
